@@ -13,6 +13,7 @@ public class Audio {
 	public Audio() {
 	}
 	
+	@SuppressWarnings("deprecation")
 	public void play(String path) {
 		try {
 			if(!strings.contains(path)) {

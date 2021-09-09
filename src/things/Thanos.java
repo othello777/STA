@@ -62,7 +62,8 @@ public class Thanos extends PhysicsThing {
 		if(state) {
 			Debug.println("on");
 			if(keyCode == KeyEvent.VK_E) {
-				Debug.println("w:" + Main.pan.getSize().width);
+				CreatePhantom(1, 20);
+				
 				this.Location.x = (int)(Main.pan.getMousePosition().x / ((float)Main.pan.getSize().width / Globals.DIMENSION.width))
 						- ScaledSize.width / 2;
 				this.Location.y = (int)(Main.pan.getMousePosition().y / ((float)Main.pan.getSize().height / Globals.DIMENSION.height))

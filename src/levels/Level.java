@@ -34,7 +34,8 @@ public abstract class Level {
 	}*/
 	
 	public void DrawAll(Graphics g) {
-		for (Thing thing : things) {
+		for (int i = 0; i < things.size(); i++) {
+			Thing thing = things.get(i);
 			thing.draw(g);
 		}
 	}
@@ -46,7 +47,8 @@ public abstract class Level {
 	}
 	
 	public void KeyUpdateAll(KeyEvent e, boolean state) {			
-		for (Thing thing : things) {
+		for (int i = 0; i < things.size(); i++) {
+			Thing thing = things.get(i);
 			if(thing instanceof Thanos) {
 				((Thanos) thing).KeyUpdate(e, state);
 			}

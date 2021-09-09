@@ -1,5 +1,6 @@
 package things;
 
+import java.awt.AlphaComposite;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -49,10 +50,12 @@ public class Sprite {
 		AffineTransform at = new AffineTransform();
 		at.translate(x, y);
 		at.scale((double)width/img.getWidth(null), (double)height/img.getHeight(null));
-		
-		((Graphics2D)g).drawImage(img, at, null);
+		Graphics2D g2d = ((Graphics2D)g);
+		g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha));
+		g2d.drawImage(img, at, null);
 	}
 	
 	public Level level;
 	public Image Sprite;
+	public float alpha = 1f;
 }

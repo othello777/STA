@@ -30,6 +30,8 @@ public class PhysicsThing extends MaterialThing {
 				forthing.Location.move(Velocity.x, Velocity.y);
 				if(i > 10) {
 					Location.move(1, 1);
+					if(i > 50)
+						return;
 				}
 				i++;
 			}

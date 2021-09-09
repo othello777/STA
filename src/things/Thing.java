@@ -73,6 +73,13 @@ public abstract class Thing extends Sprite {
 		ScaledSize.height = (int)(Sprite.getHeight(null) * Scale * Globals.GlobalScale);
 	}
 	
+	public void CreatePhantom(int type, int duration) {
+		Phantom phantom = new Phantom(this);
+		phantom.typefade = type;
+		phantom.ticktime = duration;
+		level.Add(phantom);
+	}
+	
 	public Point DrawLocation;
 	public Point Location;
 	//public Point offset;
