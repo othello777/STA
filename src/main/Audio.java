@@ -1,4 +1,5 @@
 package main;
+import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +16,7 @@ public class Audio {
 	public void play(String path) {
 		try {
 			if(!strings.contains(path)) {
-				urls.add(this.getClass().getClassLoader().getResource(path));
+				urls.add(new File(Settings.GetFolder() + path).toURL());
 				strings.add(path);
 				play(path);
 			}

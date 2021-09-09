@@ -28,6 +28,6 @@ public class Settings {
 	}
 	
 	public static String GetFolder() {
-		return System.getProperty("user.dir") + "/";
+		return System.getProperty("user.dir") + "/content/";
 	}
 }
