@@ -1,4 +1,5 @@
 # Scratch Thanos's Adventures
+This is NOT made in scratch, but in java. it is based on a scratch game.
 In this funny video game, Scratch Thanos is on a quest to find all 6 infinity stones so he can snap half the universe into corn flakes. I won't give much more spoilers than that ;)
 
 This game is based on a scratch project made by TheKingOfDucks (Spoilers): https://scratch.mit.edu/projects/290555853/
