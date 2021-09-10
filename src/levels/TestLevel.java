@@ -1,5 +1,7 @@
 package levels;
 
+import java.awt.Point;
+
 import main.Globals;
 import things.Gem;
 import things.Thanos;
@@ -8,15 +10,25 @@ import things.Thing;
 public class TestLevel extends Level {
 
 	public TestLevel() {
+		Thing soccerfg = new Thing();
+		soccerfg.Sprite = soccerfg.GetImageFile("soccergauntletfg.png");
+		soccerfg.Location = new Point(20, (Globals.DIMENSION.height/2) - (soccerfg.Sprite.getHeight(null)/2));
+		
+		Thing soccerbg = new Thing();
+		soccerbg.Sprite = soccerbg.GetImageFile("soccergauntletbg.png");
+		soccerbg.Location = new Point(20, (Globals.DIMENSION.height/2) - (soccerbg.Sprite.getHeight(null)/2));
+		
 		loopwalls = true;
 		ptransfermomentum = true;
 		this.Add(new sky2());
+		this.Add(soccerbg);
 		for(int i = 0; i <= 5; i++) {
 			this.Add(new Gem(i));
 		}
 		this.Add(new sky());
 		this.thanos = new Thanos();
 		this.Add(thanos);
+		this.Add(soccerfg);
 		
 	}
 	

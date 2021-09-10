@@ -20,6 +20,11 @@ public class Phantom extends Thing {
 			if(timer >= ticktime)
 				level.Remove(this);
 		}
+		else if(typefade == 2) {
+			alpha = (((float)timer - ticktime) * -1) / ticktime;
+			if(timer >= ticktime)
+				level.Remove(this);
+		}
 		
 		if(typefade > 0)
 			timer++;

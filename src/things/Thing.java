@@ -11,7 +11,7 @@ import main.Globals;
 //import main.Main;
 //import main.Vec2;
 
-public abstract class Thing extends Sprite {
+public class Thing extends Sprite {
 	
 	public Thing() {
 		Location = new Point(0, 0);

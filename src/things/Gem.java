@@ -1,10 +1,12 @@
 package things;
 
+import levels.Level;
 import main.Globals;
 
 public class Gem extends PhysicsThing {
 
 	public Gem(int c) {
+		type = c;
 		switch (c) {
 		case 0:
 			Sprite = GetImageFile("stone_yellow.png");
@@ -27,13 +29,24 @@ public class Gem extends PhysicsThing {
 		}
 		Location.x = Globals.RAND.nextInt(Globals.DIMENSION.width);
 		Location.y = Globals.RAND.nextInt(Globals.DIMENSION.height);
+		
 		Scale = 0.1f;
 		CalculateSize();
 	}
 
 	@Override
+	public void Add(Level lev) {
+		super.Add(lev);
+		while (level.Collides(this)) {
+			Location.x = Globals.RAND.nextInt(Globals.DIMENSION.width);
+			Location.y = Globals.RAND.nextInt(Globals.DIMENSION.height);
+		}
+	}
+	
+	@Override
 	public void Hit() {
 		Globals.AUDIO.play("rock" + (Globals.RAND.nextInt(3) + 1) + ".wav");
 		super.Hit();
 	}
+	public int type;
 }

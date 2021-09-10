@@ -62,12 +62,12 @@ public abstract class Level {
 			if(HitBoxCalc(forthing).intersects(senderThing) && 
 					thing != forthing && forthing instanceof MaterialThing)
 			{
-				((MaterialThing)forthing).Hit();
+				/*((MaterialThing)forthing).Hit();
 				((MaterialThing)thing).Hit();
 				if(ptransfermomentum) {
 					((PhysicsThing)forthing).Velocity.x += ((PhysicsThing)thing).Velocity.x;
 					((PhysicsThing)forthing).Velocity.y += ((PhysicsThing)thing).Velocity.y;
-				}
+				}*/
 				return true;
 			}
 		}
