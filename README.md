@@ -11,4 +11,4 @@ It isnt really done yet, but you can build it at whatever state its at and check
 The entire thing is java. Just make sure you have the resources in the correct folders.
 
 ## Committing
-I would love to have collaberation on this, although it would likely take someone with a similar sense of humor. Feel free to send me an email.
+I would love to have collaberation on this, although it would likely take someone with a similar sense of humor. Feel free to send me an email. othello71@outlook.com
