@@ -1,10 +1,9 @@
 package things;
+
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Point;
-import java.awt.Rectangle;
 
 import main.Debug;
 import main.Globals;
@@ -39,9 +38,7 @@ public class Thing extends Sprite {
 				Location.x, Location.y, 
 				(int)(Sprite.getWidth(null) * Scale * Globals.GlobalScale), 
 				(int)(Sprite.getHeight(null) * Scale * Globals.GlobalScale));
-		if(Hitbox != null && Globals.Debug) {
-			((Graphics2D)g).draw(Hitbox);
-		}
+		
 		//AffineTransform at = AffineTransform.getScaleInstance(Scale, Scale);
 		/*if(Scale > 1)
 			g.drawImage(Sprite, Location.xint(), Location.yint(), 
@@ -85,5 +82,4 @@ public class Thing extends Sprite {
 	//public Point offset;
 	public Dimension ScaledSize;
 	public float Scale;
-	public Rectangle Hitbox;
 }

@@ -27,29 +27,29 @@ public class Thanos extends PhysicsThing {
 	public void Update() {
 		if(turnswick)
 		{
-		Point prevVal = (Point)Location.clone();
-		if(isKeyPressed.Right && Velocity.x < speed) {
-			Velocity.x += 1;
-		}
-		if(isKeyPressed.Left && Velocity.x > speed * -1) {
-			Velocity.x -= 1;
-		}
-		if(isKeyPressed.Up && Velocity.y > speed * -1) {
-			Velocity.y -= 1;
-		}
-		if(isKeyPressed.Down && Velocity.y < speed) {
-			Velocity.y += 1;
-		}
-		if(level.Collides(this))
-			Location = prevVal;
-		
-		if(Velocity.x > 0)
-			Sprite = facingLeft;
-		else if (Velocity.x < 0) {
-			Sprite = facingRight;
-		}
-		
-		turnswick = false;
+			//Point prevVal = (Point)Location.clone();
+			if(isKeyPressed.Right && Velocity.x < speed) {
+				Velocity.x += 1;
+			}
+			if(isKeyPressed.Left && Velocity.x > speed * -1) {
+				Velocity.x -= 1;
+			}
+			if(isKeyPressed.Up && Velocity.y > speed * -1) {
+				Velocity.y -= 1;
+			}
+			if(isKeyPressed.Down && Velocity.y < speed) {
+				Velocity.y += 1;
+			}
+			/*if(level.Collides(this))
+				Location = prevVal;*/
+			
+			if(Velocity.x > 0)
+				Sprite = facingLeft;
+			else if (Velocity.x < 0) {
+				Sprite = facingRight;
+			}
+			
+			turnswick = false;
 		}
 		else {
 			turnswick = true;

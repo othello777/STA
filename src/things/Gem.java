@@ -37,7 +37,7 @@ public class Gem extends PhysicsThing {
 	@Override
 	public void Add(Level lev) {
 		super.Add(lev);
-		while (level.Collides(this)) {
+		while (level.PathCollides(null, this) != null) {
 			Location.x = Globals.RAND.nextInt(Globals.DIMENSION.width);
 			Location.y = Globals.RAND.nextInt(Globals.DIMENSION.height);
 		}

@@ -12,9 +12,7 @@ public class PhysicsThing extends MaterialThing {
 	
 	@Override
 	public void Update() {
-		
 		//Velocity.y += 2;//apply gravity
-		
 		Point saveLocation = (Point)Location.clone();
 		Location.x += Velocity.x;
 		Location.y += Velocity.y;
@@ -27,9 +25,9 @@ public class PhysicsThing extends MaterialThing {
 			int i = 0;
 			while (level.PathCollides(saveLocation, this) != null) {
 				Debug.println("got stuck; yeeting");
-				forthing.Location.move(Velocity.x, Velocity.y);
+				forthing.Location.translate(Velocity.x, Velocity.y);
 				if(i > 10) {
-					Location.move(1, 1);
+					Location.translate(1, 1);
 					if(i > 50)
 						return;
 				}

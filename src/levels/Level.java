@@ -55,9 +55,9 @@ public abstract class Level {
 		}
 	}
 	
-	public boolean Collides(Thing thing) {
+	/*public boolean Collides(Thing thing) {
 		Rectangle senderThing = HitBoxCalc(thing);
-		thing.Hitbox = senderThing;
+		((MaterialThing)thing).Hitbox = senderThing;
 		for (Thing forthing : things) {
 			if(HitBoxCalc(forthing).intersects(senderThing) && 
 					thing != forthing && forthing instanceof MaterialThing)
@@ -67,25 +67,30 @@ public abstract class Level {
 				if(ptransfermomentum) {
 					((PhysicsThing)forthing).Velocity.x += ((PhysicsThing)thing).Velocity.x;
 					((PhysicsThing)forthing).Velocity.y += ((PhysicsThing)thing).Velocity.y;
-				}*/
+				}*
 				return true;
 			}
 		}
 		return false;
-	}
+	}*/
 	
 	public Thing PathCollides(Point saveLocation, Thing sender) {
-		Line2D path = new Line2D.Float(saveLocation, sender.Location);
 		Rectangle senderThing = HitBoxCalc(sender);
-		sender.Hitbox = senderThing;
+		((MaterialThing)sender).Hitbox = senderThing;
 		for (Thing forthing : things) {
-			if(HitBoxCalc(forthing).intersectsLine(path) && 
-					sender != forthing && forthing instanceof MaterialThing 
-					|| HitBoxCalc(forthing).intersects(senderThing) && 
-					sender != forthing && forthing instanceof MaterialThing)
-			{
-				
-				return forthing;
+			try {
+				Line2D path = new Line2D.Float(saveLocation, sender.Location);
+				if(HitBoxCalc(forthing).intersectsLine(path) && 
+						sender != forthing && forthing instanceof MaterialThing 
+						|| HitBoxCalc(forthing).intersects(senderThing) && 
+						sender != forthing && forthing instanceof MaterialThing) {
+					return forthing;
+				}
+			} catch (Exception e) {
+				if(HitBoxCalc(forthing).intersects(senderThing) && 
+						sender != forthing && forthing instanceof MaterialThing) {
+					return forthing;
+				}
 			}
 		}
 		return null;

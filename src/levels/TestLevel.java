@@ -1,33 +1,47 @@
 package levels;
 
 import java.awt.Point;
+import java.awt.Rectangle;
 
 import main.Globals;
 import things.Gem;
+import things.InvisibleBox;
 import things.Thanos;
 import things.Thing;
 
 public class TestLevel extends Level {
 
 	public TestLevel() {
+		//Preferences
+		loopwalls = true;
+		ptransfermomentum = true;
+		//Soccer Goal Prep:
 		Thing soccerfg = new Thing();
 		soccerfg.Sprite = soccerfg.GetImageFile("soccergauntletfg.png");
 		soccerfg.Location = new Point(20, (Globals.DIMENSION.height/2) - (soccerfg.Sprite.getHeight(null)/2));
-		
 		Thing soccerbg = new Thing();
 		soccerbg.Sprite = soccerbg.GetImageFile("soccergauntletbg.png");
 		soccerbg.Location = new Point(20, (Globals.DIMENSION.height/2) - (soccerbg.Sprite.getHeight(null)/2));
 		
-		loopwalls = true;
-		ptransfermomentum = true;
+		InvisibleBox soccertopbar = new InvisibleBox();
+		soccertopbar.Hitbox = new Rectangle(100,100,150,50);
+		soccertopbar.Location = new Point(100,100);
+		//InvisibleBox soccersquare = new InvisibleBox();
+		
+		//Add S P A C E backdrop
 		this.Add(new sky2());
 		this.Add(soccerbg);
+		//Add Infinity Rocks
 		for(int i = 0; i <= 5; i++) {
 			this.Add(new Gem(i));
 		}
+		//Add S P A C E ambient
 		this.Add(new sky());
+		//SCRATCH THANOS ARRIVES
 		this.thanos = new Thanos();
 		this.Add(thanos);
+		//add,collisn
+		this.Add(soccertopbar);
 		this.Add(soccerfg);
 		
 	}
