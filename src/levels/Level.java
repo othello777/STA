@@ -75,9 +75,12 @@ public abstract class Level {
 	}*/
 	
 	public Thing PathCollides(Point saveLocation, Thing sender) {
-		Rectangle senderThing = HitBoxCalc(sender);
-		((MaterialThing)sender).Hitbox = senderThing;
-		for (Thing forthing : things) {
+		
+		
+		Rectangle senderThing = ((MaterialThing)sender).Hitbox;
+		if(senderThing == null)
+			return null;
+		for (Thing forthing : things) {			
 			try {
 				Line2D path = new Line2D.Float(saveLocation, sender.Location);
 				if(HitBoxCalc(forthing).intersectsLine(path) && 
@@ -96,8 +99,12 @@ public abstract class Level {
 		return null;
 	}
 	
-	private Rectangle HitBoxCalc(Thing thing) {
+	private Rectangle HitBoxCalc(Thing thing) {		
 		Rectangle hitbox;
+		if(thing instanceof MaterialThing)
+			if(((MaterialThing)thing).SetHitbox)
+				return ((MaterialThing)thing).Hitbox;
+		
 		if (thing.Scale > 1) {
 			hitbox = new Rectangle(thing.Location, new Dimension(
 					thing.Sprite.getWidth(null) * (int)thing.Scale,
@@ -111,7 +118,17 @@ public abstract class Level {
 			hitbox = new Rectangle(thing.Location, new Dimension(
 					thing.Sprite.getWidth(null),
 					thing.Sprite.getHeight(null)));
-		}	
+		}
+		
+		//Set Hitbox
+		if(thing instanceof MaterialThing) {
+			MaterialThing thingi = (MaterialThing)thing;
+			if(thingi.SetHitbox)
+				thingi.Hitbox.setLocation(thingi.Location);
+			else 
+				thingi.Hitbox = hitbox;
+		}
+		
 		return hitbox;
 	}
 	

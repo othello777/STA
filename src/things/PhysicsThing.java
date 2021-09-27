@@ -18,15 +18,19 @@ public class PhysicsThing extends MaterialThing {
 		Location.y += Velocity.y;
 		
 		if(level.PathCollides(saveLocation, this) != null) {
+			Debug.println("collid");
 			Thing forthing = level.PathCollides(saveLocation, this);
 			((MaterialThing)forthing).Hit();
 			((MaterialThing)this).Hit();
 			Location = saveLocation;
 			int i = 0;
-			while (level.PathCollides(saveLocation, this) != null) {
-				Debug.println("got stuck; yeeting");
-				forthing.Location.translate(Velocity.x, Velocity.y);
+			while (level.PathCollides(null, this) != null) {
+				if(forthing instanceof PhysicsThing) {
+					Debug.println("got stuck; yeeting it");
+					forthing.Location.translate(Velocity.x, Velocity.y);
+				}
 				if(i > 10) {
+					Debug.println("got stuck; yeeting self");
 					Location.translate(1, 1);
 					if(i > 50)
 						return;
@@ -34,12 +38,17 @@ public class PhysicsThing extends MaterialThing {
 				i++;
 			}
 			if(level.ptransfermomentum) {
-				Point saveVelocity = (Point)Velocity.clone();
-				Velocity = ((PhysicsThing)forthing).Velocity;
-				((PhysicsThing)forthing).Velocity = saveVelocity;
-				//((PhysicsThing)forthing).Velocity.x += ((PhysicsThing)this).Velocity.x / 1.5;
-				//((PhysicsThing)forthing).Velocity.y += ((PhysicsThing)this).Velocity.y / 1.5;
-				
+				if(forthing instanceof MaterialThing && !(forthing instanceof PhysicsThing)) {
+					Velocity.x *= -1;
+					Velocity.y *= -1;
+				}
+				else {
+					Point saveVelocity = (Point)Velocity.clone();
+					Velocity = ((PhysicsThing)forthing).Velocity;
+					((PhysicsThing)forthing).Velocity = saveVelocity;
+					//((PhysicsThing)forthing).Velocity.x += ((PhysicsThing)this).Velocity.x / 1.5;
+					//((PhysicsThing)forthing).Velocity.y += ((PhysicsThing)this).Velocity.y / 1.5;
+				}
 			}
 			else {
 				OnCollision();	

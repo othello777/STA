@@ -24,8 +24,11 @@ public class TestLevel extends Level {
 		soccerbg.Location = new Point(20, (Globals.DIMENSION.height/2) - (soccerbg.Sprite.getHeight(null)/2));
 		
 		InvisibleBox soccertopbar = new InvisibleBox();
-		soccertopbar.Hitbox = new Rectangle(100,100,150,50);
-		soccertopbar.Location = new Point(100,100);
+		soccertopbar.Hitbox = new Rectangle(0,0,150,50);
+		soccertopbar.Location = new Point(200,200);
+		InvisibleBox soccertopbar2 = new InvisibleBox();
+		soccertopbar2.Hitbox = new Rectangle(0,0,150,50);
+		soccertopbar2.Location = new Point(351,150);
 		//InvisibleBox soccersquare = new InvisibleBox();
 		
 		//Add S P A C E backdrop
@@ -42,6 +45,7 @@ public class TestLevel extends Level {
 		this.Add(thanos);
 		//add,collisn
 		this.Add(soccertopbar);
+		this.Add(soccertopbar2);
 		this.Add(soccerfg);
 		
 	}
