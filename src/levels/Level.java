@@ -75,8 +75,7 @@ public abstract class Level {
 	}*/
 	
 	public Thing PathCollides(Point saveLocation, Thing sender) {
-		
-		
+		HitBoxCalc(sender);
 		Rectangle senderThing = ((MaterialThing)sender).Hitbox;
 		if(senderThing == null)
 			return null;
@@ -102,8 +101,13 @@ public abstract class Level {
 	private Rectangle HitBoxCalc(Thing thing) {		
 		Rectangle hitbox;
 		if(thing instanceof MaterialThing)
-			if(((MaterialThing)thing).SetHitbox)
-				return ((MaterialThing)thing).Hitbox;
+		{
+			MaterialThing materialThing = (MaterialThing)thing; 
+			if(materialThing.SetHitbox) {
+				materialThing.Hitbox.setLocation(materialThing.Location);
+				return materialThing.Hitbox;
+			}
+		}
 		
 		if (thing.Scale > 1) {
 			hitbox = new Rectangle(thing.Location, new Dimension(
