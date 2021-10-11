@@ -4,7 +4,7 @@ In this funny video game, Scratch Thanos is on a quest to find all 6 infinity st
 
 This game is based on a scratch project made by TheKingOfDucks (Spoilers): https://scratch.mit.edu/projects/290555853/
 
-There was also a high-res video based on that scratch project.
+There was also a high-res video and a written short story based on that scratch project.
 
 ## Building
 It isnt really done yet, but you can build it at whatever state its at and check it out.
