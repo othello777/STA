@@ -23,13 +23,13 @@ public class TestLevel extends Level {
 		soccerbg.Sprite = soccerbg.GetImageFile("soccergauntletbg.png");
 		soccerbg.Location = new Point(20, (Globals.DIMENSION.height/2) - (soccerbg.Sprite.getHeight(null)/2));
 		
-		InvisibleBox soccertopbar = new InvisibleBox();
-		soccertopbar.Hitbox = new Rectangle(0,0,150,50);
-		soccertopbar.Location = new Point(200,200);
+		/*InvisibleBox soccertopbar = 
+		soccertopbar.Hitbox = new Rectangle(0,0,);
+		soccertopbar.Location = new Point();
 		InvisibleBox soccertopbar2 = new InvisibleBox();
 		soccertopbar2.Hitbox = new Rectangle(0,0,150,50);
 		soccertopbar2.Location = new Point(351,150);
-		//InvisibleBox soccersquare = new InvisibleBox();
+		//InvisibleBox soccersquare = new InvisibleBox();*/
 		
 		//Add S P A C E backdrop
 		this.Add(new sky2());
@@ -44,10 +44,12 @@ public class TestLevel extends Level {
 		this.thanos = new Thanos();
 		this.Add(thanos);
 		//add,collisn
-		this.Add(soccertopbar);
-		this.Add(soccertopbar2);
 		this.Add(soccerfg);
-		
+		this.Add(new InvisibleBox(200,200,150,50));
+		this.Add(new InvisibleBox(351,150,150,50));
+		this.Add(new InvisibleBox(200,250,50,150));
+		this.Add(new InvisibleBox(150,400,50,150));
+		this.Add(new InvisibleBox(100,550,50,150));
 	}
 	
 	public class sky extends Thing {
