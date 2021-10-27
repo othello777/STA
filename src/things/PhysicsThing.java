@@ -39,8 +39,8 @@ public class PhysicsThing extends MaterialThing {
 			}
 			if(level.ptransfermomentum) {
 				if(forthing instanceof MaterialThing && !(forthing instanceof PhysicsThing)) {
-					Velocity.x *= -1;
-					Velocity.y *= -1;
+					Velocity.x *= -0.9;
+					Velocity.y *= -0.9;
 				}
 				else {
 					Point saveVelocity = (Point)Velocity.clone();

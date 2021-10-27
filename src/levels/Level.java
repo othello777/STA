@@ -75,10 +75,9 @@ public abstract class Level {
 	}*/
 	
 	public Thing PathCollides(Point saveLocation, Thing sender) {
-		HitBoxCalc(sender);
-		Rectangle senderThing = ((MaterialThing)sender).Hitbox;
-		if(senderThing == null)
-			return null;
+		Rectangle senderThing = HitBoxCalc(sender);
+		senderThing = ((MaterialThing)sender).Hitbox;
+		
 		for (Thing forthing : things) {			
 			try {
 				Line2D path = new Line2D.Float(saveLocation, sender.Location);

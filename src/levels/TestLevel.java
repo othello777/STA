@@ -1,7 +1,6 @@
 package levels;
 
 import java.awt.Point;
-import java.awt.Rectangle;
 
 import main.Globals;
 import things.Gem;
